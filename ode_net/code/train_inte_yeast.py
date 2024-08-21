@@ -199,7 +199,7 @@ def save_model(odenet, folder, filename):
 parser = argparse.ArgumentParser('Testing')
 parser.add_argument('--settings', type=str, default='config_yeast.cfg')
 clean_name =  "pramila_3551genes_1sample_24T" 
-parser.add_argument('--data', type=str, default='/home/ubuntu/neural_ODE/pramila_yeast_data/clean_data/{}.csv'.format(clean_name))
+parser.add_argument('--data', type=str, default='../../pramila_yeast_data/clean_data/{}.csv'.format(clean_name))
 
 args = parser.parse_args()
 
@@ -256,7 +256,7 @@ if __name__ == "__main__":
                                         init_bias_y = settings['init_bias_y'])
     
     #Read in the prior matrix
-    prior_mat_loc = '/home/ubuntu/neural_ODE/pramila_yeast_data/clean_data/edge_prior_matrix_pramila_3551.csv'
+    prior_mat_loc = '../../pramila_yeast_data/clean_data/edge_prior_matrix_pramila_3551.csv'
     prior_mat = read_prior_matrix(prior_mat_loc, sparse = False, num_genes = data_handler.dim)
     #matrix_of_pm_1 = 2 * (torch.randint(low = 0, high=2, size =prior_mat.shape)-0.5)
     #prior_mat = prior_mat * matrix_of_pm_1
@@ -283,7 +283,7 @@ if __name__ == "__main__":
     print("Using a NN with {} neurons per layer, with {} trainable parameters, i.e. parametrization ratio = {}".format(settings['neurons_per_layer'], param_count, param_ratio))
     
     if settings['pretrained_model']:
-        pretrained_model_file = '/home/ubuntu/neural_ODE/ode_net/code/output/_pretrained_best_model/best_val_model.pt'
+        pretrained_model_file = 'output/_pretrained_best_model/best_val_model.pt'
         odenet.load(pretrained_model_file)
         #print("Loaded in pre-trained model!")
         

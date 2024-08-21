@@ -1,3 +1,4 @@
+
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import matplotlib.patches as patches
@@ -35,7 +36,7 @@ class Visualizator1D(Visualizator):
         #self.ax_dyn = self.fig_dyn.add_subplot(111, frameon=False)
         self.my_range_tuple = my_range_tuple
         self.fig_traj_split = plt.figure(figsize=(15,15), tight_layout=True)
-        self.fig_traj_split.canvas.set_window_title("Trajectories in each dimension")
+        self.fig_traj_split.canvas.manager.set_window_title("Trajectories in each dimension")
         
         self.TOT_ROWS = 5
         self.TOT_COLS = 6

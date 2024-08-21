@@ -195,9 +195,9 @@ def save_model(odenet, folder, filename):
 parser = argparse.ArgumentParser('Testing')
 parser.add_argument('--settings', type=str, default='config_BCell.cfg')
 clean_name =  "mias_control_14691genes_2samples_6T" 
-parser.add_argument('--data', type=str, default='/home/ubuntu/neural_ODE/mias_bcell_data/clean_data/{}.csv'.format(clean_name))
+parser.add_argument('--data', type=str, default='../../mias_bcell_data/clean_data/{}.csv'.format(clean_name))
 test_data_name = "mias_control_14691genes_2samples_6T" 
-parser.add_argument('--test_data', type=str, default='/home/ubuntu/neural_ODE/mias_bcell_data/clean_data/{}.csv'.format(test_data_name))
+parser.add_argument('--test_data', type=str, default='../../mias_bcell_data/clean_data/{}.csv'.format(test_data_name))
 
 args = parser.parse_args()
 
@@ -256,7 +256,7 @@ if __name__ == "__main__":
     abs_prior = True
     
     #Read in the prior matrix
-    prior_mat_loc = '/home/ubuntu/neural_ODE/mias_bcell_data/clean_data/edge_prior_matrix_mias_14691.csv'
+    prior_mat_loc = '../../mias_bcell_data/clean_data/edge_prior_matrix_mias_14691.csv'
     prior_mat = read_prior_matrix(prior_mat_loc, sparse = True, num_genes = data_handler.dim)
     
     if abs_prior:
@@ -287,7 +287,7 @@ if __name__ == "__main__":
     print("Using a NN with {} neurons per layer, with {} trainable parameters, i.e. parametrization ratio = {}".format(settings['neurons_per_layer'], param_count, param_ratio))
     
     if settings['pretrained_model']:
-        pretrained_model_file = '/home/ubuntu/neural_ODE/ode_net/code/output/_pretrained_best_model/best_val_model.pt'
+        pretrained_model_file = 'output/_pretrained_best_model/best_val_model.pt'
         odenet.load(pretrained_model_file)
         #print("Loaded in pre-trained model!")
         
